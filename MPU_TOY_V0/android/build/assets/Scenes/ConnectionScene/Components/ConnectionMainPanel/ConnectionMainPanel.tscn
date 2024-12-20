@@ -1,0 +1,430 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingAnimation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/font/legendum/Legendum.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/font/Agency/AGENCYB.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/ConnectionScene/Components/ConnectionMainPanel/Textures/bianco.jpg" type="Texture" id=6]
+[ext_resource path="res://Scenes/ConnectionScene/Components/ConnectionMainPanel/ConnectionMainPanel.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/ConnectionScene/Components/DeviceListItem/DeviceListItem.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 33
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=7]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 1 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+ItemList/colors/font_color = Color( 0.63, 0.63, 0.63, 1 )
+ItemList/colors/font_color_selected = Color( 1, 1, 1, 1 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 0.1 )
+ItemList/constants/hseparation = 4
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 2
+ItemList/constants/vseparation = 2
+ItemList/fonts/font = SubResource( 2 )
+ItemList/styles/bg = null
+ItemList/styles/bg_focus = null
+ItemList/styles/cursor = null
+ItemList/styles/cursor_unfocused = null
+ItemList/styles/selected = null
+ItemList/styles/selected_focus = null
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 3 )
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+OptionButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+OptionButton/constants/arrow_margin = 13
+OptionButton/constants/hseparation = 14
+OptionButton/fonts/font = SubResource( 4 )
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = SubResource( 5 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = null
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+ToolButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+ToolButton/colors/font_color_disabled = Color( 0.9, 0.95, 1, 0.3 )
+ToolButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+ToolButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+ToolButton/constants/hseparation = 3
+ToolButton/fonts/font = SubResource( 6 )
+ToolButton/styles/disabled = null
+ToolButton/styles/focus = null
+ToolButton/styles/hover = null
+ToolButton/styles/normal = null
+ToolButton/styles/pressed = null
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 33
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=14]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 8 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+ItemList/colors/font_color = Color( 0.63, 0.63, 0.63, 1 )
+ItemList/colors/font_color_selected = Color( 1, 1, 1, 1 )
+ItemList/colors/guide_color = Color( 0, 0, 0, 0.1 )
+ItemList/constants/hseparation = 4
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 2
+ItemList/constants/vseparation = 2
+ItemList/fonts/font = SubResource( 9 )
+ItemList/styles/bg = null
+ItemList/styles/bg_focus = null
+ItemList/styles/cursor = null
+ItemList/styles/cursor_unfocused = null
+ItemList/styles/selected = null
+ItemList/styles/selected_focus = null
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 10 )
+Label/styles/normal = null
+OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+OptionButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+OptionButton/constants/arrow_margin = 13
+OptionButton/constants/hseparation = 14
+OptionButton/fonts/font = SubResource( 11 )
+OptionButton/icons/arrow = null
+OptionButton/styles/disabled = null
+OptionButton/styles/focus = null
+OptionButton/styles/hover = null
+OptionButton/styles/normal = null
+OptionButton/styles/pressed = null
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = SubResource( 12 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = null
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+ToolButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+ToolButton/colors/font_color_disabled = Color( 0.9, 0.95, 1, 0.3 )
+ToolButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+ToolButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+ToolButton/constants/hseparation = 3
+ToolButton/fonts/font = SubResource( 13 )
+ToolButton/styles/disabled = null
+ToolButton/styles/focus = null
+ToolButton/styles/hover = null
+ToolButton/styles/normal = null
+ToolButton/styles/pressed = null
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.270588, 0.529412, 0.756863, 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 60
+outline_size = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 21
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 21
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.352941, 0.352941, 0.352941, 0.588235 )
+
+[node name="MainPanel" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 7 )
+texture = ExtResource( 6 )
+expand = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+popup_confirm_connection_nodepath = NodePath("Popup_ConnectionConfirmation")
+devicelist_nodepath = NodePath("DeviceListPanel/DeviceListContainer")
+connection_timer_nodepath = NodePath("ConnectionTimer")
+loading_animation_nodepath = NodePath("LoadingAnimation")
+popup_connection_failed_nodepath = NodePath("Popup_ConnectionFailed")
+device_item_template = ExtResource( 9 )
+
+[node name="Title" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.071
+margin_top = 1.12247
+margin_bottom = 0.80246
+theme = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TitleBackground" type="Panel" parent="Title"]
+margin_right = 1080.0
+margin_bottom = 136.0
+custom_styles/panel = SubResource( 20 )
+
+[node name="Text" type="Label" parent="Title"]
+margin_top = 67.0
+margin_right = 1080.0
+margin_bottom = 69.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "Available TWC devices"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeviceListPanel" type="ScrollContainer" parent="."]
+anchor_top = 0.073
+anchor_right = 0.999
+anchor_bottom = 1.0
+margin_left = -1.18921
+margin_top = -0.0164948
+margin_right = -0.11084
+margin_bottom = -1.85669
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="DeviceListContainer" type="VBoxContainer" parent="DeviceListPanel"]
+margin_right = 1080.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup_ConnectionConfirmation" type="PopupDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.5
+margin_top = -162.5
+margin_right = 257.5
+margin_bottom = 162.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="Popup_ConnectionConfirmation"]
+anchor_right = 1.0
+anchor_bottom = 0.579
+margin_left = 39.0
+margin_top = 18.0
+margin_right = -30.0
+margin_bottom = -0.175018
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Do you want to connect to the highlighted device ?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choices" type="MarginContainer" parent="Popup_ConnectionConfirmation"]
+anchor_top = 0.574
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = 25.45
+margin_right = -41.0
+margin_bottom = -37.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConnectionConfirmation" type="Button" parent="Popup_ConnectionConfirmation/Choices"]
+margin_right = 150.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 17 )
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbortConnection" type="Button" parent="Popup_ConnectionConfirmation/Choices"]
+margin_left = 278.0
+margin_right = 428.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 8
+custom_fonts/font = SubResource( 18 )
+text = "Return"
+
+[node name="Popup_ConnectionFailed" type="PopupDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.5
+margin_top = -162.5
+margin_right = 257.5
+margin_bottom = 162.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="Popup_ConnectionFailed"]
+anchor_right = 1.0
+anchor_bottom = 0.579
+margin_left = 39.0
+margin_top = 18.0
+margin_right = -30.0
+margin_bottom = -0.175018
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Connection failed
+try again"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="Button" parent="Popup_ConnectionFailed"]
+anchor_left = 0.517
+anchor_top = 0.709
+anchor_right = 0.517
+anchor_bottom = 0.709
+margin_left = -75.1766
+margin_top = -37.9538
+margin_right = 74.8234
+margin_bottom = 38.0462
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 8
+custom_fonts/font = SubResource( 18 )
+text = "Ok"
+
+[node name="LoadingAnimation" parent="." instance=ExtResource( 1 )]
+visible = false
+custom_styles/panel = SubResource( 19 )
+
+[node name="ConnectionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="Popup_ConnectionConfirmation/Choices/ConnectionConfirmation" to="." method="_on_ConnectionConfirmation_pressed"]
+[connection signal="pressed" from="Popup_ConnectionConfirmation/Choices/AbortConnection" to="." method="_on_AbortConnection_pressed"]
+[connection signal="pressed" from="Popup_ConnectionFailed/Return" to="." method="_on_Return_pressed"]
+[connection signal="timeout" from="ConnectionTimer" to="." method="_on_ConnectionTimer_timeout"]

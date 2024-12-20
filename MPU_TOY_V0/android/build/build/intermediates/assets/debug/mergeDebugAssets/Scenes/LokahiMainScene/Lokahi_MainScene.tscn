@@ -1,0 +1,861 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Scenes/LokahiMainScene/Lokahi_MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Diagnostics/SignalsMonitor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Agency/MonospaceTypewriter.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Diagnostics/SignalsMonitorBar.gd" type="Script" id=4]
+[ext_resource path="res://Agency/AGENCYB.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Diagnostics/SignalsMonitorVal.gd" type="Script" id=6]
+[ext_resource path="res://Diagnostics/SignalsMonitorVaHeartl.gd" type="Script" id=7]
+[ext_resource path="res://Agency/ShareTechMono-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/LokahiMainScene/Recording.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/SessionFileManagement/FileManagementPanel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/LokahiMainScene/Popup_delete_file.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/LokahiMainScene/Button2.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/LokahiMainScene/Button.gd" type="Script" id=13]
+[ext_resource path="res://assets/font/Agency/AGENCYB.TTF" type="DynamicFontData" id=14]
+[ext_resource path="res://button image/ignoring.png" type="Texture" id=15]
+[ext_resource path="res://button image/airplane.png" type="Texture" id=16]
+[ext_resource path="res://button image/car.png" type="Texture" id=17]
+[ext_resource path="res://button image/Frog.png" type="Texture" id=18]
+[ext_resource path="res://assets/font/Agency/AGENCYR.TTF" type="DynamicFontData" id=19]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Agency/AGENCYB.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 31
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 28
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 28
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 55
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 33
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFontData" id=14]
+font_path = "res://Agency/MonospaceTypewriter.ttf"
+
+[sub_resource type="DynamicFont" id=15]
+size = 38
+font_data = SubResource( 14 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://Agency/AGENCYB.TTF"
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 54
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 52
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 40
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 36
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 23
+outline_color = Color( 0.972549, 0.0901961, 0.0901961, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 23
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 23
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 23
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 30
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 19 )
+
+[node name="root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+Eulerx_path = NodePath("Eulerx")
+Eulery_path = NodePath("Eulery")
+Eulerz_path = NodePath("Eulerz")
+monitor_path = NodePath("LegMonitor")
+monitorSynch_path = NodePath("MonitorSynchPath")
+Button_airplane_path = NodePath("Button_airplane")
+Button_car_path = NodePath("Button_car")
+Button_walking_path = NodePath("Button_walking")
+Button_ignoring_path = NodePath("Button_ignoring")
+cbs_1_path = NodePath("cbs_1")
+cbs_2_path = NodePath("cbs_2")
+cbs_3_path = NodePath("cbs_3")
+cbs_4_path = NodePath("cbs_4")
+cbs_5_path = NodePath("cbs_5")
+slidervolume_path = NodePath("HSlider_volume")
+sliderlight_path = NodePath("HSlider_light")
+log_files_path = NodePath("SessionManagement/FileManagementPanel")
+popup_delete_file_path = NodePath("SessionManagement/Popup_delete_file")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.996078, 0.796078, 0.203922, 1 )
+
+[node name="Eulery" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 286.0
+margin_top = 289.0
+margin_right = 423.0
+margin_bottom = 362.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+align = 1
+
+[node name="Eulerx" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 52.0
+margin_top = 285.0
+margin_right = 217.0
+margin_bottom = 369.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+align = 1
+
+[node name="High_0" type="Label" parent="."]
+visible = false
+margin_left = 836.0
+margin_top = 831.0
+margin_right = 1001.0
+margin_bottom = 915.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+
+[node name="Thresh_0" type="Label" parent="."]
+visible = false
+margin_left = 836.0
+margin_top = 952.0
+margin_right = 1001.0
+margin_bottom = 1036.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+
+[node name="Low_0" type="Label" parent="."]
+visible = false
+margin_left = 836.0
+margin_top = 1058.0
+margin_right = 1001.0
+margin_bottom = 1142.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.98
+
+[node name="LegMonitor" parent="." instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 448.0
+margin_right = 425.36
+margin_bottom = 663.28
+tickNumber = 90
+
+[node name="LegMonitorBar" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 817.0
+margin_top = 382.0
+margin_right = 745.36
+margin_bottom = 575.28
+script = ExtResource( 4 )
+
+[node name="MonitorSynchPath" parent="." instance=ExtResource( 2 )]
+margin_left = 104.0
+margin_top = 903.0
+margin_right = 427.36
+margin_bottom = 1119.28
+script = ExtResource( 6 )
+tickNumber = 90
+
+[node name="LegMonitorBar3" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 127.0
+margin_top = 778.0
+margin_right = 425.36
+margin_bottom = 971.28
+script = ExtResource( 7 )
+mainLineColor = Color( 1, 0, 0, 1 )
+tickNumber = 90
+
+[node name="LegMonitorBar4" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 125.0
+margin_top = 1174.0
+margin_right = 423.36
+margin_bottom = 1367.28
+script = ExtResource( 7 )
+mainLineColor = Color( 0, 0.470588, 1, 1 )
+tickNumber = 90
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 90.0
+margin_top = 246.0
+margin_right = 203.0
+margin_bottom = 286.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = "X"
+align = 1
+valign = 1
+
+[node name="Label6" type="Label" parent="."]
+visible = false
+margin_left = 817.0
+margin_top = 800.0
+margin_right = 945.0
+margin_bottom = 836.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = " High 0"
+align = 1
+valign = 1
+
+[node name="Label12" type="Label" parent="."]
+visible = false
+margin_left = 286.0
+margin_top = 1303.0
+margin_right = 808.0
+margin_bottom = 1601.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = "First Plot Euler Angles:
+			RANGE (-180°,180°)
+Second Plot Acc Data:
+			RANGE (-2g, 2g)
+Gyro Range (-500,500) deg/s"
+align = 1
+valign = 1
+
+[node name="Label8" type="Label" parent="."]
+visible = false
+margin_left = 817.0
+margin_top = 925.0
+margin_right = 966.0
+margin_bottom = 961.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = " Thresh 0"
+align = 1
+valign = 1
+
+[node name="Label7" type="Label" parent="."]
+visible = false
+margin_left = 770.0
+margin_top = 1048.0
+margin_right = 967.0
+margin_bottom = 1084.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = " Low 0"
+align = 1
+valign = 1
+
+[node name="High_1" type="Label" parent="."]
+visible = false
+margin_left = 822.0
+margin_top = 1202.0
+margin_right = 987.0
+margin_bottom = 1286.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+
+[node name="Thresh_1" type="Label" parent="."]
+visible = false
+margin_left = 822.0
+margin_top = 1323.0
+margin_right = 987.0
+margin_bottom = 1407.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+
+[node name="Low_1" type="Label" parent="."]
+visible = false
+margin_left = 822.0
+margin_top = 1429.0
+margin_right = 987.0
+margin_bottom = 1513.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+
+[node name="Label9" type="Label" parent="."]
+visible = false
+margin_left = 803.0
+margin_top = 1171.0
+margin_right = 931.0
+margin_bottom = 1207.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = " High 1"
+align = 1
+valign = 1
+
+[node name="Label10" type="Label" parent="."]
+visible = false
+margin_left = 803.0
+margin_top = 1296.0
+margin_right = 952.0
+margin_bottom = 1332.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = " Thresh 1"
+align = 1
+valign = 1
+
+[node name="Label11" type="Label" parent="."]
+visible = false
+margin_left = 756.0
+margin_top = 1419.0
+margin_right = 953.0
+margin_bottom = 1455.0
+rect_pivot_offset = Vector2( 52, 13 )
+custom_fonts/font = SubResource( 5 )
+text = " Low 1"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 299.0
+margin_top = 251.0
+margin_right = 411.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 6 )
+text = "Y"
+align = 1
+
+[node name="Eulerz" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 499.0
+margin_top = 291.0
+margin_right = 636.0
+margin_bottom = 364.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 502.0
+margin_top = 252.0
+margin_right = 635.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 8 )
+text = "Z"
+align = 1
+
+[node name="Label28" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 796.0
+margin_top = 510.0
+margin_right = 1060.0
+margin_bottom = 585.0
+custom_fonts/font = SubResource( 8 )
+text = "TILT ANGLES 
+PLOT IN °"
+align = 1
+
+[node name="Label29" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 730.0
+margin_top = 1053.0
+margin_right = 1064.0
+margin_bottom = 1128.0
+custom_fonts/font = SubResource( 8 )
+text = "GYROSCOPE
+PLOT IN deg/s"
+align = 1
+
+[node name="Label5" type="Label" parent="."]
+visible = false
+margin_left = 796.0
+margin_top = 205.0
+margin_right = 1009.0
+margin_bottom = 241.0
+custom_fonts/font = SubResource( 8 )
+text = "loop Interval"
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+margin_left = 833.0
+margin_top = 1601.0
+margin_right = 917.0
+margin_bottom = 1650.0
+custom_fonts/font = SubResource( 9 )
+text = "Synch"
+
+[node name="synch" type="Label" parent="."]
+visible = false
+margin_left = 840.0
+margin_top = 1664.0
+margin_right = 953.0
+margin_bottom = 1731.0
+custom_fonts/font = SubResource( 10 )
+text = "..."
+
+[node name="loop_inteval" type="Label" parent="."]
+visible = false
+margin_left = 840.0
+margin_top = 251.0
+margin_right = 965.0
+margin_bottom = 303.0
+custom_fonts/font = SubResource( 13 )
+text = "..."
+
+[node name="Label13" type="Label" parent="."]
+visible = false
+margin_left = 773.0
+margin_top = 1784.0
+margin_right = 948.0
+margin_bottom = 1868.0
+custom_fonts/font = SubResource( 15 )
+text = "test"
+
+[node name="SessionManagement" type="ReferenceRect" parent="."]
+margin_left = 80.0
+margin_top = 18.0
+margin_right = 665.0
+margin_bottom = 205.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SessionManagement"]
+margin_left = -272.0
+margin_top = -1764.0
+margin_right = -243.0
+margin_bottom = -1746.0
+rect_scale = Vector2( -18.1211, 9.04834 )
+
+[node name="StartLog" type="Button" parent="SessionManagement"]
+margin_left = 248.0
+margin_top = 38.0
+margin_right = 463.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 2049, -39 )
+custom_fonts/font = SubResource( 12 )
+toggle_mode = true
+text = "Start Log"
+
+[node name="Files" type="Button" parent="SessionManagement"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 213.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 16 )
+toggle_mode = true
+text = "Files"
+
+[node name="Recording" type="TextureRect" parent="SessionManagement"]
+margin_left = 470.0
+margin_top = 43.0
+margin_right = 566.0
+margin_bottom = 142.0
+script = ExtResource( 9 )
+
+[node name="LabelRec" type="Label" parent="SessionManagement/Recording"]
+visible = false
+anchor_bottom = 0.086
+margin_left = 21.0
+margin_top = 6.0
+margin_right = 116.0
+margin_bottom = 88.486
+custom_fonts/font = SubResource( 17 )
+text = "Rec"
+
+[node name="FileManagementPanel" parent="SessionManagement" instance=ExtResource( 10 )]
+visible = false
+margin_right = 278.0
+margin_bottom = 1341.0
+
+[node name="Popup_delete_file" type="PopupDialog" parent="SessionManagement"]
+margin_left = 216.0
+margin_top = 1582.0
+margin_right = 647.0
+margin_bottom = 1807.0
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="SessionManagement/Popup_delete_file"]
+anchor_left = 0.157
+anchor_top = 0.135
+anchor_right = 0.913
+anchor_bottom = 0.421
+margin_left = -12.756
+margin_top = -2.04
+margin_right = -12.804
+margin_bottom = -1.98401
+custom_fonts/font = SubResource( 18 )
+text = "Delete selected file?"
+
+[node name="Choices" type="MarginContainer" parent="SessionManagement/Popup_delete_file"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 47.0
+margin_right = -48.0
+margin_bottom = -15.0
+
+[node name="Cancel" type="Button" parent="SessionManagement/Popup_delete_file/Choices"]
+margin_right = 103.0
+margin_bottom = 55.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 1.3
+custom_fonts/font = SubResource( 19 )
+text = "Cancel"
+
+[node name="Ok" type="Button" parent="SessionManagement/Popup_delete_file/Choices"]
+margin_left = 276.0
+margin_right = 319.0
+margin_bottom = 55.0
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.92
+custom_fonts/font = SubResource( 20 )
+text = "Ok"
+align = 2
+
+[node name="Button_airplane" type="Button" parent="."]
+margin_left = 140.0
+margin_top = 1356.0
+margin_right = 320.0
+margin_bottom = 1536.0
+text = "Airplane"
+script = ExtResource( 13 )
+
+[node name="TextureRect" type="TextureRect" parent="Button_airplane"]
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 182.0
+margin_bottom = 182.0
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Button_car" type="Button" parent="."]
+margin_left = 352.0
+margin_top = 1357.0
+margin_right = 532.0
+margin_bottom = 1537.0
+text = "Car"
+script = ExtResource( 12 )
+
+[node name="TextureRect" type="TextureRect" parent="Button_car"]
+margin_left = -2.0
+margin_top = -4.0
+margin_right = 183.0
+margin_bottom = 181.0
+texture = ExtResource( 17 )
+expand = true
+
+[node name="Button_walking" type="Button" parent="."]
+margin_left = 567.0
+margin_top = 1357.0
+margin_right = 747.0
+margin_bottom = 1537.0
+text = "walking"
+script = ExtResource( 13 )
+
+[node name="TextureRect" type="TextureRect" parent="Button_walking"]
+margin_left = -2.0
+margin_top = -5.0
+margin_right = 183.0
+margin_bottom = 180.0
+texture = ExtResource( 18 )
+expand = true
+
+[node name="Button_ignoring" type="Button" parent="."]
+margin_left = 790.0
+margin_top = 1356.0
+margin_right = 970.0
+margin_bottom = 1536.0
+text = "ignoring"
+script = ExtResource( 13 )
+
+[node name="TextureRect" type="TextureRect" parent="Button_ignoring"]
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 181.0
+margin_bottom = 181.0
+texture = ExtResource( 15 )
+expand = true
+
+[node name="Label14" type="Label" parent="."]
+modulate = Color( 0.972549, 0.0901961, 0.0901961, 1 )
+self_modulate = Color( 0.972549, 0.0901961, 0.0901961, 1 )
+margin_left = 152.0
+margin_top = 1567.0
+margin_right = 312.0
+margin_bottom = 1600.0
+custom_colors/font_color = Color( 0.929412, 0.0470588, 0.0470588, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "AIRPLANE"
+align = 1
+
+[node name="Label15" type="Label" parent="."]
+modulate = Color( 1, 0, 0.960784, 1 )
+self_modulate = Color( 1, 0, 0.960784, 1 )
+margin_left = 364.0
+margin_top = 1567.0
+margin_right = 524.0
+margin_bottom = 1602.0
+custom_fonts/font = SubResource( 26 )
+text = "CAR"
+align = 1
+
+[node name="Label16" type="Label" parent="."]
+modulate = Color( 0, 0.984314, 0.0156863, 1 )
+self_modulate = Color( 0.156863, 1, 0.00784314, 1 )
+margin_left = 576.0
+margin_top = 1567.0
+margin_right = 736.0
+margin_bottom = 1591.0
+custom_fonts/font = SubResource( 23 )
+text = "FROG"
+align = 1
+
+[node name="Label17" type="Label" parent="."]
+modulate = Color( 0, 0.0941176, 0.984314, 1 )
+self_modulate = Color( 0.0251541, 0.217389, 0.919922, 1 )
+margin_left = 802.0
+margin_top = 1567.0
+margin_right = 962.0
+margin_bottom = 1596.0
+custom_fonts/font = SubResource( 24 )
+text = "IGNORING"
+align = 1
+
+[node name="Label22" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 827.0
+margin_top = 687.0
+margin_right = 987.0
+margin_bottom = 716.0
+custom_fonts/font = SubResource( 24 )
+text = "VOLUME"
+align = 1
+
+[node name="Label24" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 752.0
+margin_top = 785.0
+margin_right = 798.0
+margin_bottom = 814.0
+custom_fonts/font = SubResource( 24 )
+text = "0"
+align = 1
+
+[node name="Label26" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 738.0
+margin_top = 990.0
+margin_right = 802.0
+margin_bottom = 1019.0
+custom_fonts/font = SubResource( 24 )
+text = "0"
+align = 1
+
+[node name="Label27" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 994.0
+margin_top = 995.0
+margin_right = 1068.0
+margin_bottom = 1024.0
+custom_fonts/font = SubResource( 24 )
+text = "5"
+align = 1
+
+[node name="Label25" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 1007.0
+margin_top = 783.0
+margin_right = 1063.0
+margin_bottom = 812.0
+custom_fonts/font = SubResource( 24 )
+text = "5"
+align = 1
+
+[node name="Label23" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 824.0
+margin_top = 899.0
+margin_right = 984.0
+margin_bottom = 950.0
+custom_fonts/font = SubResource( 24 )
+text = "LIGHT"
+align = 1
+
+[node name="Label18" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 196.0
+margin_top = 1654.0
+margin_right = 929.0
+margin_bottom = 1765.0
+custom_fonts/font = SubResource( 25 )
+text = "Instructions: Once the device is connected it can be displayed
+tilt angle values in degree, and plots of tilt angle data and gyroscope data.
+Once start log is pressed, press on the relative icons to manually label the data."
+align = 1
+
+[node name="Label19" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 364.0
+margin_top = 1786.0
+margin_right = 741.0
+margin_bottom = 1895.0
+custom_fonts/font = SubResource( 25 )
+text = "ECHO APP V 1.0.1"
+align = 1
+valign = 1
+
+[node name="Label20" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 701.0
+margin_top = 189.0
+margin_right = 1078.0
+margin_bottom = 298.0
+custom_fonts/font = SubResource( 25 )
+text = "classification time window:
+from 1 (533 ms) to 5 (2,66 s)"
+align = 1
+valign = 1
+
+[node name="Label21" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 931.0
+margin_top = 335.0
+margin_right = 1117.0
+margin_bottom = 444.0
+custom_fonts/font = SubResource( 25 )
+text = "(default)"
+align = 1
+valign = 1
+
+[node name="cbs_1" type="Button" parent="."]
+margin_left = 735.0
+margin_top = 311.0
+margin_right = 790.0
+margin_bottom = 364.0
+text = "1"
+
+[node name="cbs_2" type="Button" parent="."]
+margin_left = 800.0
+margin_top = 311.0
+margin_right = 855.0
+margin_bottom = 364.0
+text = "2"
+
+[node name="cbs_3" type="Button" parent="."]
+margin_left = 865.0
+margin_top = 311.0
+margin_right = 920.0
+margin_bottom = 364.0
+text = "3"
+
+[node name="cbs_4" type="Button" parent="."]
+margin_left = 930.0
+margin_top = 311.0
+margin_right = 985.0
+margin_bottom = 364.0
+text = "4"
+
+[node name="cbs_5" type="Button" parent="."]
+margin_left = 995.0
+margin_top = 311.0
+margin_right = 1050.0
+margin_bottom = 364.0
+text = "5"
+
+[node name="HSlider_volume" type="HSlider" parent="."]
+margin_left = 767.0
+margin_top = 730.0
+margin_right = 1049.0
+margin_bottom = 785.0
+min_value = 21.0
+max_value = 25.0
+value = 21.0
+
+[node name="HSlider_light" type="HSlider" parent="."]
+margin_left = 763.0
+margin_top = 944.0
+margin_right = 1041.0
+margin_bottom = 988.0
+min_value = 31.0
+max_value = 35.0
+value = 31.0
+
+[connection signal="toggled" from="SessionManagement/StartLog" to="." method="_on_StartLog_toggled"]
+[connection signal="pressed" from="SessionManagement/Files" to="." method="_on_Files_pressed"]
+[connection signal="button_down" from="SessionManagement/Popup_delete_file/Choices/Cancel" to="SessionManagement/Popup_delete_file" method="_on_Cancel_button_down"]
+[connection signal="button_down" from="SessionManagement/Popup_delete_file/Choices/Ok" to="SessionManagement/Popup_delete_file" method="_on_Ok_button_down"]
+[connection signal="pressed" from="Button_airplane" to="." method="_on_Button_airplane_pressed"]
+[connection signal="pressed" from="Button_car" to="." method="_on_Button_car_pressed"]
+[connection signal="pressed" from="Button_walking" to="." method="_on_Button_walking_pressed"]
+[connection signal="pressed" from="Button_ignoring" to="." method="_on_Button_ignoring_pressed"]
+[connection signal="pressed" from="cbs_1" to="." method="_on_cbs_1_pressed"]
+[connection signal="pressed" from="cbs_2" to="." method="_on_cbs_2_pressed"]
+[connection signal="pressed" from="cbs_3" to="." method="_on_cbs_3_pressed"]
+[connection signal="pressed" from="cbs_4" to="." method="_on_cbs_4_pressed"]
+[connection signal="pressed" from="cbs_5" to="." method="_on_cbs_5_pressed"]
+[connection signal="value_changed" from="HSlider_volume" to="." method="_on_HSlider_volume_value_changed"]
+[connection signal="value_changed" from="HSlider_light" to="." method="_on_HSlider_light_value_changed"]
+
+[editable path="LegMonitorBar"]
+[editable path="MonitorSynchPath"]
+[editable path="LegMonitorBar3"]
+[editable path="LegMonitorBar4"]

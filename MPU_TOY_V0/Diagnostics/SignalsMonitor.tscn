@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Diagnostics/SignalsMonitor.gd" type="Script" id=1]
+[ext_resource path="res://Diagnostics/Textures/GraphBackground.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 116, 116 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 7.90701
+margin_bottom = 7.36697
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Agency/AGENCYB.TTF"
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Agency/AGENCYB.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = SubResource( 4 )
+
+[node name="LegMonitor" type="Panel"]
+anchor_right = 0.233
+anchor_bottom = 0.066
+margin_right = 0.359634
+margin_bottom = -0.679916
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+max_label_path = NodePath("Max")
+min_label_path = NodePath("Min")
+
+[node name="Max" type="Label" parent="."]
+margin_left = -89.2466
+margin_top = -26.5546
+margin_right = -21.2466
+margin_bottom = 19.4454
+grow_horizontal = 0
+custom_fonts/font = SubResource( 3 )
+text = "Max"
+align = 2
+
+[node name="Min" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -91.0
+margin_top = -14.0401
+margin_right = -19.0
+margin_bottom = 31.9599
+grow_horizontal = 0
+custom_fonts/font = SubResource( 5 )
+text = "Min"
+align = 2
+
+[connection signal="resized" from="." to="." method="_on_LegMonitor_resized"]

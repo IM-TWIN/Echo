@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/ConnectionScene/Components/ConnectionMainPanel/ConnectionMainPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/SessionFileManagement/FileManagementPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ConnectionScene/ConnectionScene.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/ConnectionScene/InfoButton.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/font/Agency/AGENCYB.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 71
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/font/Agency/MonospaceTypewriter.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://assets/font/Agency/AGENCYB.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 57
+font_data = SubResource( 5 )
+
+[node name="root" type="Node"]
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchor_right = 0.999
+anchor_bottom = 0.077
+margin_right = 1.07996
+margin_bottom = -0.460007
+color = Color( 0.098, 0.1022, 0.14, 1 )
+
+[node name="Files" type="Button" parent="TextureRect"]
+anchor_left = 0.036
+anchor_top = 0.151
+anchor_right = 0.317
+anchor_bottom = 0.77
+margin_left = 0.120003
+margin_top = -0.254377
+margin_right = -8.36002
+margin_bottom = 15.5174
+custom_fonts/font = SubResource( 2 )
+text = "Log files"
+
+[node name="InfoButton" type="Button" parent="TextureRect"]
+anchor_left = 0.821
+anchor_top = 0.151
+anchor_right = 0.968
+anchor_bottom = 0.77
+margin_left = 0.319946
+margin_top = 0.0479984
+margin_right = -0.440063
+margin_bottom = -0.0400085
+custom_fonts/font = SubResource( 2 )
+text = "Info"
+script = ExtResource( 4 )
+info_panel_path = NodePath("../../InfoPanel")
+
+[node name="ConnectionMainPanel" parent="." instance=ExtResource( 1 )]
+margin_top = 153.0
+file_management_panel_path = NodePath("../FileManagementPanel")
+
+[node name="FileManagementPanel" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_left = 0.035
+anchor_top = 0.081
+anchor_right = 0.969
+anchor_bottom = 0.974
+margin_left = 0.200001
+margin_top = -6.38
+margin_right = 5.47998
+margin_bottom = 0.47998
+
+[node name="MainCode" type="Node" parent="."]
+script = ExtResource( 3 )
+connection_main_panel_path = NodePath("../ConnectionMainPanel")
+
+[node name="StartBLEScan_Timer" type="Timer" parent="MainCode"]
+one_shot = true
+
+[node name="InfoPanel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.172
+anchor_top = 0.389
+anchor_right = 0.827
+anchor_bottom = 0.58
+margin_left = 33.24
+margin_top = 30.78
+margin_right = -30.16
+margin_bottom = -27.4
+
+[node name="Close" type="Button" parent="InfoPanel"]
+anchor_left = 0.852
+anchor_right = 1.0
+anchor_bottom = 0.284
+margin_left = 8.31195
+margin_top = 15.0
+margin_right = -14.0
+margin_bottom = -8.88
+custom_fonts/font = SubResource( 4 )
+text = "X"
+
+[node name="Label" type="Label" parent="InfoPanel"]
+anchor_top = 0.372
+anchor_right = 1.0
+anchor_bottom = 0.647
+margin_left = 61.0
+margin_top = -0.0400009
+margin_right = -62.0
+margin_bottom = -0.0400085
+custom_fonts/font = SubResource( 6 )
+text = "Lokahi App V 2.0.0"
+align = 1
+
+[connection signal="pressed" from="TextureRect/Files" to="ConnectionMainPanel" method="_on_Files_pressed"]
+[connection signal="pressed" from="TextureRect/InfoButton" to="TextureRect/InfoButton" method="_on_InfoButton_pressed"]
+[connection signal="connection_aborted" from="ConnectionMainPanel" to="MainCode" method="_on_ConnectionMainPanel_connection_aborted"]
+[connection signal="connection_confirmed" from="ConnectionMainPanel" to="MainCode" method="_on_ConnectionMainPanel_connection_confirmed"]
+[connection signal="connection_request" from="ConnectionMainPanel" to="MainCode" method="_on_ConnectionMainPanel_connection_request"]
+[connection signal="timeout" from="MainCode/StartBLEScan_Timer" to="MainCode" method="_on_Timer_timeout"]
+[connection signal="pressed" from="InfoPanel/Close" to="TextureRect/InfoButton" method="_on_Close_pressed"]

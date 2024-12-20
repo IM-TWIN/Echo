@@ -1,0 +1,56 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_8.png" type="Texture" id=1]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_10.png" type="Texture" id=2]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_1.png" type="Texture" id=3]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_2.png" type="Texture" id=4]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_12.png" type="Texture" id=5]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_9.png" type="Texture" id=6]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_5.png" type="Texture" id=7]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_11.png" type="Texture" id=8]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_4.png" type="Texture" id=9]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_6.png" type="Texture" id=10]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_3.png" type="Texture" id=11]
+[ext_resource path="res://CommonAssets/LoadingOverlay/LoadingWheelIcon/LoadingWheel_7.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.352941, 0.352941, 0.352941, 0.588235 )
+
+[sub_resource type="AnimatedTexture" id=20]
+flags = 4
+frames = 12
+fps = 15.0
+frame_0/texture = ExtResource( 3 )
+frame_1/texture = ExtResource( 4 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 11 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 9 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 7 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 10 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 12 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 1 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 6 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 2 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 8 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 5 )
+frame_11/delay_sec = 0.0
+
+[node name="LoadingOverlayAnimation" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 19 )
+
+[node name="LoadingWheel" type="TextureRect" parent="."]
+margin_right = 1080.0
+margin_bottom = 1980.0
+texture = SubResource( 20 )
+stretch_mode = 4

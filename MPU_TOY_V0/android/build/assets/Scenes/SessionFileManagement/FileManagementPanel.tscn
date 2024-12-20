@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/SessionFileManagement/FileManagementPanel.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/SessionFileManagement/ScrollableItemList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/font/Agency/AGENCYB.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/LegOptionsAssets/CloseIcon.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/SessionFileManagement/FileListItem.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.1224, 0.267467, 0.34, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 71
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 120, 119 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 120, 119 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 120, 119 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 120, 119 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 120, 119 )
+
+[node name="FileManagementPanel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 130.0
+margin_top = 300.0
+margin_right = -130.0
+margin_bottom = -240.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+file_item = ExtResource( 5 )
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Container"]
+margin_right = 764.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+custom_styles/panel = SubResource( 5 )
+
+[node name="Label" type="Label" parent="Container/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Log Files"
+align = 1
+valign = 1
+
+[node name="FileList" parent="Container" instance=ExtResource( 2 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 104.0
+margin_right = 764.0
+margin_bottom = 104.0
+
+[node name="CloseButton" type="Button" parent="."]
+modulate = Color( 0.0431373, 0, 0, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -74.0
+margin_top = 15.0
+margin_right = -11.0
+margin_bottom = 85.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+
+[connection signal="button_down" from="CloseButton" to="." method="_on_CloseButton_button_down"]

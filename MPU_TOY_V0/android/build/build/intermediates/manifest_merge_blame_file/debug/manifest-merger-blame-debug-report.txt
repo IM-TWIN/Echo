@@ -1,0 +1,162 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.godotengine.mputoy"
+4    android:installLocation="auto"
+5    android:versionCode="1"
+6    android:versionName="1.0" > <!-- glEsVersion is modified by the exporter, changing this value here has no effect. -->
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="33" />
+10
+11    <supports-screens
+11-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:12:5-16:40
+12        android:largeScreens="true"
+12-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:15:9-36
+13        android:normalScreens="true"
+13-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:14:9-37
+14        android:smallScreens="true"
+14-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:13:9-36
+15        android:xlargeScreens="true" />
+15-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:16:9-37
+16
+17    <uses-feature
+17-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/src/debug/AndroidManifest.xml:10:5-78
+18        android:glEsVersion="0x00030000"
+18-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/src/debug/AndroidManifest.xml:10:19-51
+19        android:required="true" />
+19-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/src/debug/AndroidManifest.xml:10:52-75
+20
+21    <uses-permission android:name="android.permission.BLUETOOTH" />
+21-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:10:5-68
+21-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:10:22-65
+22    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+22-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:11:5-74
+22-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:11:22-71
+23    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+23-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:12:5-73
+23-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:12:22-70
+24    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+24-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:13:5-78
+24-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:13:22-75
+25    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+25-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:14:5-76
+25-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:14:22-73
+26    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+26-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:15:5-79
+26-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:15:22-76
+27
+28    <uses-feature
+28-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:17:5-19:35
+29        android:name="android.hardware.bluetooth_le"
+29-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:18:9-53
+30        android:required="true" />
+30-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:19:9-32
+31
+32    <application
+32-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:5-109:19
+33        android:allowBackup="false"
+33-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:68-95
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.2.0] /home/giampiero/.gradle/caches/transforms-3/9bcb1a65f5938aad264f4d73e9a06f28/transformed/core-1.2.0/AndroidManifest.xml:24:18-86
+35        android:debuggable="true"
+36        android:extractNativeLibs="false"
+37        android:hasFragileUserData="false"
+37-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:118-152
+38        android:icon="@mipmap/icon"
+38-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:238-265
+39        android:isGame="true"
+39-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:96-117
+40        android:label="@string/godot_project_name_string"
+40-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:18-67
+41        android:requestLegacyExternalStorage="false" >
+41-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:30:153-197
+42        <activity
+42-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:65:9-88:20
+43            android:name="com.godot.game.GodotApp"
+43-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:66:13-37
+44            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+44-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:73:13-141
+45            android:excludeFromRecents="false"
+45-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:70:13-47
+46            android:exported="true"
+46-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:71:13-36
+47            android:label="@string/godot_project_name_string"
+47-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:67:13-62
+48            android:launchMode="singleTask"
+48-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:69:13-44
+49            android:resizeableActivity="true"
+49-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:74:13-47
+50            android:screenOrientation="portrait"
+50-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:72:13-50
+51            android:theme="@style/GodotAppSplashTheme" >
+51-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:68:13-55
+52            <intent-filter>
+52-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:80:13-87:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:81:17-69
+53-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:81:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:82:17-77
+55-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:82:27-74
+56
+57                <!--
+58                Enable access to OpenXR on Oculus mobile devices, no-op on other Android
+59                platforms.
+60                -->
+61                <category android:name="com.oculus.intent.category.VR" />
+61-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:86:17-74
+61-->/home/giampiero/Desktop/Echo/MPU_TOY_V0/android/build/AndroidManifest.xml:86:27-71
+62            </intent-filter>
+63        </activity>
+64        <!-- Records the version of the Godot editor used for building -->
+65        <meta-data
+66            android:name="org.godotengine.editor.version"
+67            android:value="3.5.3.stable" />
+68
+69        <provider
+70            android:name="androidx.core.content.FileProvider"
+71            android:authorities="org.godotengine.mputoy"
+72            android:exported="false"
+73            android:grantUriPermissions="true" >
+74            <meta-data
+75                android:name="android.support.FILE_PROVIDER_PATHS"
+76                android:resource="@xml/file_provider_paths" />
+77        </provider> <!-- Records the version of the Godot library -->
+78        <meta-data
+78-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:14:9-16:44
+79            android:name="org.godotengine.library.version"
+79-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:15:13-59
+80            android:value="3.5.3.stable" />
+80-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:16:13-41
+81
+82        <service android:name="org.godotengine.godot.GodotDownloaderService" />
+82-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:18:9-80
+82-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:18:18-77
+83
+84        <activity
+84-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:20:9-24:75
+85            android:name="org.godotengine.godot.utils.ProcessPhoenix"
+85-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:21:13-70
+86            android:exported="false"
+86-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:22:13-37
+87            android:process=":phoenix"
+87-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:23:13-39
+88            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+88-->[godot-lib.debug.aar] /home/giampiero/.gradle/caches/transforms-3/bc57bf9a95885c2fd81c29e99b26c727/transformed/jetified-godot-lib.debug/AndroidManifest.xml:24:13-72
+89
+90        <meta-data
+90-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:22:9-24:65
+91            android:name="org.godotengine.plugin.v1.BLEPlugin"
+91-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:23:13-63
+92            android:value="com.example.bleframework.GodotBLE" />
+92-->[bleframework-debug.aar] /home/giampiero/.gradle/caches/transforms-3/5928c6d5e3ae3b14f3281a22088a749f/transformed/jetified-bleframework-debug/AndroidManifest.xml:24:13-62
+93        <meta-data
+93-->[GodotShare.debug.aar] /home/giampiero/.gradle/caches/transforms-3/c651c8fe914133cdf7c4531e1310f18f/transformed/jetified-GodotShare.debug/AndroidManifest.xml:11:9-13:82
+94            android:name="org.godotengine.plugin.v1.GodotShare"
+94-->[GodotShare.debug.aar] /home/giampiero/.gradle/caches/transforms-3/c651c8fe914133cdf7c4531e1310f18f/transformed/jetified-GodotShare.debug/AndroidManifest.xml:12:13-64
+95            android:value="shinnil.godot.plugin.android.godotshare.GodotShare" />
+95-->[GodotShare.debug.aar] /home/giampiero/.gradle/caches/transforms-3/c651c8fe914133cdf7c4531e1310f18f/transformed/jetified-GodotShare.debug/AndroidManifest.xml:13:13-79
+96    </application>
+97
+98</manifest>

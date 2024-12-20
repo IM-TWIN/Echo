@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[ext_resource path="res://assets/LegOptionsAssets/VolumeSlider.png" type="Texture" id=1]
+
+[resource]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0.124664, 3, 41.0174, 64.6506 )
+margin_left = 41.2485
+margin_right = 40.9078
+margin_top = 41.2565
+margin_bottom = 42.0806
