@@ -12,6 +12,14 @@ var rng = RandomNumberGenerator.new()
 var logCharachteristicsUUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8"
 var command_characteristic = "1a33e440-fa7f-48ec-b887-f99663a70f58"
 var string_stream_characteristic = "be90e30f-4cf7-4c98-9de7-e20df844156e"
+
+# BLE for Camera
+#var camera_service =        "19b10010-e8f2-537e-4f6c-d104768a1214"
+var camera_service =        "19B10010-E8F2-537E-4F6C-D104768A1214"
+var camera_characteristic = "19b10012-e8f2-537e-4f6c-d104768a1214"
+var camera_dev_address
+
+
 #variabili di eulero mostrate a display e monitor dati eulero e accelerometri
 export (NodePath) var Eulerx_path
 export (NodePath) var Eulery_path
@@ -113,8 +121,25 @@ func _ready():
 	# "FileManagementPanel"
 	popup_delete_file.caller = log_files_panel
 	log_files_panel.connect("delete_log_file", self, "_on_delete_file")
+	
+		# added for managing camera
+	BleManager.connect("device_connected", self, "_on_device_connected")
+	BleManager.connect("characteristic_written", self, "_on_characteristic_written")
+	BleManager.connect("ble_initialized", self,"_on_ble_initialized")
+	BleManager.connect("device_found", self, "_on_dev_found")
+	#BleManager.request_mtu(dev_address)
+	
+#---------------------------------------------------------------------------------------------------
+# this function is called when Android BluetoothLE has been initialized 
+func _on_ble_initialized():
+	print("ble initialized")
 
-		
+	# connects the deivce found event of Bluetooth to the _on_dev_found function
+	BleManager.connect("device_found", self, "_on_dev_found")
+	BleManager.add_scan_filter_service(camera_service)
+
+#----------------------------------------------------------------------------------------------
+
 func _on_changed(address, charact_UUID, value):
 	print("[Start scanning][_on_changed]receiving notification...")
 	# controlliamo che sia la caratteristica che vogliamo noi
@@ -168,7 +193,7 @@ func _on_changed(address, charact_UUID, value):
 			# Calcoliamo i millisecondi avanzati
 			leftover_ms = total_time_ms % frame_duration
 			total_time_ms -= leftover_ms  # Aggiorniamo il tempo totale escludendo l'errore
-
+		
 		#scrive a schermo gli angoli di eulero
 		Eulerx.text = str(Eulerx_data)
 		Eulery.text = str(Eulery_data)
@@ -257,6 +282,8 @@ func _on_StartLog_toggled(button_pressed):
 		registra = true
 		command = str(10)
 		BleManager.write_string_characteristic(dev_address, string_stream_characteristic, command)
+		if camera_dev_address!="":
+			BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "rec")
 		#I change the text on the button
 		$SessionManagement/StartLog.text = "Stop Log"
 		#VALERIO: rendo visibile o invisibile la label
@@ -267,6 +294,8 @@ func _on_StartLog_toggled(button_pressed):
 		registra = false
 		command = str(20)
 		BleManager.write_string_characteristic(dev_address, string_stream_characteristic, command)
+		if camera_dev_address!="":
+			BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")		
 		$SessionManagement/StartLog.text = "Start Log"
 		$SessionManagement/Recording/LabelRec.visible=false
 	print("Start Log pressed, registra is " + str(registra))
@@ -367,3 +396,39 @@ func _on_HSlider_volume_value_changed(value):
 func _on_HSlider_light_value_changed(value):
 	command_light = value
 	BleManager.write_string_characteristic(dev_address, string_stream_characteristic, command_light)
+
+
+func _on_CameraButton_toggled(button_pressed):
+	if button_pressed:
+		print(" Scan for camera")
+		BleManager.start_scan()
+		#BleManager.write_string_characteristic(dev_address, command_characteristic, "Cam1")
+	else:
+		BleManager.stop_scan()
+#---------------------------------------------------------------------------------------------------
+# Function called when BLE scanning finds a new device
+func _on_dev_found(name, address):
+	print("Found device"+name)
+	BleManager.connect_to_device_address(address)
+
+#---------------------------------------------------------------------------------------------------
+func _on_device_connected(dev_address, name):
+	camera_dev_address = dev_address
+	$CameraButton.modulate = Color.mediumturquoise
+	print(" Connected to: "+ name)
+
+#---------------------------------------------------------------------------------------------------
+# after connection confirmation, we have turned off identification light,
+# now we can go to the main scene
+func _on_characteristic_written(address, uuid):
+	pass
+
+#----------------------------------------------------------------------------------------------
+
+
+func _on_CameraRec_toggled(button_pressed):
+	if button_pressed:
+		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "rec")
+	else:
+		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")
+

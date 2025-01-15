@@ -51,7 +51,7 @@ using namespace std;
 // Temporal variable that defines acquisition cycles, f_s = 30 Hz; t_s = 33 ms
 long prevMillis = 0;
 unsigned long timestep = 0;
-byte timestepByte = 0;
+uint8_t timestepByte = 0;
 int durata = 0;
 int prev_durata = 0;
 // bluetooth variables
@@ -64,7 +64,7 @@ bool send_diagnostic = false;
 int lastReadValue = -1;  // BT trasmission command value
 
 //byte data that will be sent to the Godot App
-byte log_values[11]; 
+uint8_t log_values[11]; 
 float x = 0;
 float y = 0;
 float z = 0;
@@ -115,7 +115,7 @@ void setup() {
 
   //MPU9250 Inizialization
   Wire.begin();
-  byte status = mpu.begin();
+  uint8_t status = mpu.begin();
   Serial.print(F("MPU9250 status: "));
   Serial.println(status);
   while (status != 0) {}  // if MPU is connected the rest of the code can run
@@ -282,8 +282,8 @@ void loop() {
     
 
     // BT Transmission to Arduino
-    std::string value = stringStreamCharacteristic->getValue();  // Simulate a reading
-    if (!value.empty()) {
+    String value = stringStreamCharacteristic->getValue();  // Simulate a reading
+    if (!value.isEmpty()) {
       int readValue = atoi(value.c_str());
       if (readValue != lastReadValue) {  ///COMMAND: consecutive equal commands will not work!!!, this helps to have different commands
 
@@ -342,17 +342,17 @@ void loop() {
     }
 
     // BT Transmission to Android
-    log_values[0] = static_cast<byte>(mapfloat(Ax, -2, 2, 0, 255));
-    log_values[1] = static_cast<byte>(mapfloat(Ay, -2, 2, 0, 255));
-    log_values[2] = static_cast<byte>(mapfloat(Az, -2, 2, 0, 255)); 
-    log_values[3] = static_cast<byte>(mapAngleToByte(x));
-    log_values[4] = static_cast<byte>(mapAngleToByte(y));
-    log_values[5] = static_cast<byte>(mapAngleToByte(z));
-    log_values[6] = static_cast<byte>(mapfloat(Gx, -500, 500, 0, 255));
-    log_values[7] = static_cast<byte>(mapfloat(Gy, -500, 500, 0, 255));
-    log_values[8] = static_cast<byte>(mapfloat(Gz, -500, 500, 0, 255));
-    log_values[9] = static_cast<byte>(classification); //single classification result
-    log_values[10] = static_cast<byte>(mostFrequentClass); //majority voting result
+    log_values[0] = static_cast<uint8_t>(mapfloat(Ax, -2, 2, 0, 255));
+    log_values[1] = static_cast<uint8_t>(mapfloat(Ay, -2, 2, 0, 255));
+    log_values[2] = static_cast<uint8_t>(mapfloat(Az, -2, 2, 0, 255)); 
+    log_values[3] = static_cast<uint8_t>(mapAngleToByte(x));
+    log_values[4] = static_cast<uint8_t>(mapAngleToByte(y));
+    log_values[5] = static_cast<uint8_t>(mapAngleToByte(z));
+    log_values[6] = static_cast<uint8_t>(mapfloat(Gx, -500, 500, 0, 255));
+    log_values[7] = static_cast<uint8_t>(mapfloat(Gy, -500, 500, 0, 255));
+    log_values[8] = static_cast<uint8_t>(mapfloat(Gz, -500, 500, 0, 255));
+    log_values[9] = static_cast<uint8_t>(classification); //single classification result
+    log_values[10] = static_cast<uint8_t>(mostFrequentClass); //majority voting result
     logCharacteristic->setValue(log_values, 11);
     logCharacteristic->notify();
     
@@ -401,13 +401,13 @@ float mapAngleToByte(float angle_degrees) {
   }
 
   // Mappa [0, 360) a [0, 255] byte range centrato attorno a 128
-  byte byte_value = (byte)((angle_degrees / 360.0) * 255 + 128) % 256;
+  uint8_t byte_value = (uint8_t)((angle_degrees / 360.0) * 255 + 128) % 256;
 
   return byte_value;
 }
 
-void write_float(byte* buff, const float value) {
-  const byte* addr = reinterpret_cast<const byte*>(&value);
+void write_float(uint8_t* buff, const float value) {
+  const uint8_t* addr = reinterpret_cast<const uint8_t*>(&value);
   for (int i = 0; i != 4; i++)
     *buff++ = *addr++;
 }

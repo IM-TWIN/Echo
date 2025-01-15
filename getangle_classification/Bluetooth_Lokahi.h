@@ -83,7 +83,7 @@ class CharacteristicCallback : public BLECharacteristicCallbacks {
   {
     Serial.print("[DEBUG][Bluetooth_Lokahi.h] BLECharacteristicCallbacks() - OnWrite()\n\t");
     Serial.print("Characteristic Callback: Writing\n\t");
-    std::string rxValue = pCharacteristic->getValue();
+    String rxValue = pCharacteristic->getValue();
     Serial.print("characteristic value: ");
     Serial.print(rxValue.c_str());
     Serial.print("\n\t");
@@ -105,7 +105,7 @@ class CharacteristicCallback : public BLECharacteristicCallbacks {
     String uuid = pCharacteristic->getUUID().toString().c_str();
     Serial.print(" Characteristic Callback: Reading");
     Serial.println(uuid);
-    std::string rxValue = pCharacteristic->getValue();
+    String rxValue = pCharacteristic->getValue();
 
     //VALERIO: all these lines in the if were already commented
     // What is the use of this if? can we omit?

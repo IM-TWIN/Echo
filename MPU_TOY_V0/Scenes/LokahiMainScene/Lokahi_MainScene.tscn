@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Scenes/LokahiMainScene/Lokahi_MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Diagnostics/SignalsMonitor.tscn" type="PackedScene" id=2]
@@ -108,6 +108,34 @@ font_data = ExtResource( 5 )
 size = 30
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 21
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 21
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 21
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 21
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 21
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 35
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 31
+font_data = ExtResource( 5 )
 
 [node name="root" type="Control"]
 anchor_right = 1.0
@@ -395,10 +423,10 @@ align = 1
 
 [node name="Label28" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 796.0
-margin_top = 510.0
-margin_right = 1060.0
-margin_bottom = 585.0
+margin_left = 732.0
+margin_top = 532.0
+margin_right = 996.0
+margin_bottom = 607.0
 custom_fonts/font = SubResource( 8 )
 text = "TILT ANGLES 
 PLOT IN °"
@@ -406,10 +434,10 @@ align = 1
 
 [node name="Label29" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 730.0
-margin_top = 1053.0
-margin_right = 1064.0
-margin_bottom = 1128.0
+margin_left = 699.0
+margin_top = 1043.0
+margin_right = 1033.0
+margin_bottom = 1118.0
 custom_fonts/font = SubResource( 8 )
 text = "GYROSCOPE
 PLOT IN deg/s"
@@ -764,23 +792,35 @@ valign = 1
 [node name="Label20" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 701.0
-margin_top = 189.0
-margin_right = 1078.0
-margin_bottom = 298.0
+margin_left = 727.0
+margin_top = 213.0
+margin_right = 1063.0
+margin_bottom = 291.0
 custom_fonts/font = SubResource( 25 )
-text = "classification time window:
-from 1 (533 ms) to 5 (2,66 s)"
+text = "Classification Time Windows Options
+[ms]"
+align = 1
+valign = 1
+
+[node name="Label30" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 711.0
+margin_top = 8.0
+margin_right = 1047.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 25 )
+text = "Camera Glasses Options"
 align = 1
 valign = 1
 
 [node name="Label21" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 931.0
-margin_top = 335.0
-margin_right = 1117.0
-margin_bottom = 444.0
+margin_left = 932.0
+margin_top = 337.0
+margin_right = 1118.0
+margin_bottom = 446.0
 custom_fonts/font = SubResource( 25 )
 text = "(default)"
 align = 1
@@ -791,35 +831,40 @@ margin_left = 735.0
 margin_top = 311.0
 margin_right = 790.0
 margin_bottom = 364.0
-text = "1"
+custom_fonts/font = SubResource( 27 )
+text = "533"
 
 [node name="cbs_2" type="Button" parent="."]
 margin_left = 800.0
 margin_top = 311.0
 margin_right = 855.0
 margin_bottom = 364.0
-text = "2"
+custom_fonts/font = SubResource( 28 )
+text = "1066"
 
 [node name="cbs_3" type="Button" parent="."]
 margin_left = 865.0
 margin_top = 311.0
 margin_right = 920.0
 margin_bottom = 364.0
-text = "3"
+custom_fonts/font = SubResource( 29 )
+text = "1600"
 
 [node name="cbs_4" type="Button" parent="."]
 margin_left = 930.0
 margin_top = 311.0
 margin_right = 985.0
 margin_bottom = 364.0
-text = "4"
+custom_fonts/font = SubResource( 30 )
+text = "2132"
 
 [node name="cbs_5" type="Button" parent="."]
 margin_left = 995.0
 margin_top = 311.0
 margin_right = 1050.0
 margin_bottom = 364.0
-text = "5"
+custom_fonts/font = SubResource( 31 )
+text = "2660"
 
 [node name="HSlider_volume" type="HSlider" parent="."]
 margin_left = 767.0
@@ -839,6 +884,23 @@ min_value = 31.0
 max_value = 35.0
 value = 31.0
 
+[node name="CameraButton" type="Button" parent="."]
+margin_left = 713.0
+margin_top = 81.0
+margin_right = 857.0
+margin_bottom = 167.0
+custom_fonts/font = SubResource( 32 )
+toggle_mode = true
+text = "Camera"
+
+[node name="CameraRec" type="Button" parent="."]
+margin_left = 893.0
+margin_top = 82.0
+margin_right = 1032.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 33 )
+text = "Rec"
+
 [connection signal="toggled" from="SessionManagement/StartLog" to="." method="_on_StartLog_toggled"]
 [connection signal="pressed" from="SessionManagement/Files" to="." method="_on_Files_pressed"]
 [connection signal="button_down" from="SessionManagement/Popup_delete_file/Choices/Cancel" to="SessionManagement/Popup_delete_file" method="_on_Cancel_button_down"]
@@ -854,6 +916,8 @@ value = 31.0
 [connection signal="pressed" from="cbs_5" to="." method="_on_cbs_5_pressed"]
 [connection signal="value_changed" from="HSlider_volume" to="." method="_on_HSlider_volume_value_changed"]
 [connection signal="value_changed" from="HSlider_light" to="." method="_on_HSlider_light_value_changed"]
+[connection signal="toggled" from="CameraButton" to="." method="_on_CameraButton_toggled"]
+[connection signal="toggled" from="CameraRec" to="." method="_on_CameraRec_toggled"]
 
 [editable path="LegMonitorBar"]
 [editable path="MonitorSynchPath"]
