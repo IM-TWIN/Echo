@@ -279,6 +279,7 @@ func _on_StartLog_toggled(button_pressed):
 		BleManager.write_string_characteristic(dev_address, string_stream_characteristic, command)
 		if camera_dev_address!="":
 			BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "rec")
+			$CameraButton2.modulate = Color.red
 		#I change the text on the button
 		$SessionManagement/StartLog.text = "Stop Log"
 		#VALERIO: rendo visibile o invisibile la label
@@ -290,7 +291,8 @@ func _on_StartLog_toggled(button_pressed):
 		command = str(20)
 		BleManager.write_string_characteristic(dev_address, string_stream_characteristic, command)
 		if camera_dev_address!="":
-			BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")		
+			BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")
+			$CameraButton2.modulate = Color.white
 		$SessionManagement/StartLog.text = "Start Log"
 		$SessionManagement/Recording/LabelRec.visible=false
 	print("Start Log pressed, registra is " + str(registra))
