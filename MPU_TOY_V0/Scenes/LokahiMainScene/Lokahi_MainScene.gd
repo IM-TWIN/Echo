@@ -93,7 +93,7 @@ func _ready():
 	button_car.connect("pressed", self, "_on_Button_car_pressed")
 	button_walking.connect("pressed", self, "_on_Button_walking_pressed")
 	button_ignoring.connect("pressed", self, "_on_Button_ignoring_pressed")
-	
+
 	# si prende dal BLE manager l'indirizzo del lokahi colleagto
 	BleManager.stop_scan()
 	dev_address = BleManager.connected_dev_address
@@ -103,15 +103,10 @@ func _ready():
 	# first argument is the signal that ble can emit; 
 	# second arg is the object responding to the signal;
 	# third arg is the  function of the object called by the detected signal;
-# warning-ignore:return_value_discarded
-	BleManager.connect("device_connected", self, "_on_dev_connected")
-# warning-ignore:return_value_discarded
-	BleManager.connect("device_found", self, "_on_dev_found")
-# warning-ignore:return_value_discarded
-	BleManager.connect("device_disconnected", self, "_on_dev_disconnected")
-	# connette il segnale "characteristic changed" (definito nel BLE manager)
-	# alla funzione _on_changed()
-# warning-ignore:return_value_discarded
+
+	#BleManager.connect("device_connected", self, "_on_dev_connected")
+	#BleManager.connect("device_found", self, "_on_dev_found")
+	BleManager.connect("device_disconnected", self, "_on_dev_disconnected") #connette il segnale "characteristic changed" (definito nel BLE manager) alla funzione _on_changed()
 	BleManager.connect("characteristic_changed", self, "_on_changed")
 	
 	# questa funzione attiva le notifiche per la caratteristica logCharacteristicUUID
@@ -126,7 +121,7 @@ func _ready():
 	BleManager.connect("device_connected", self, "_on_device_connected")
 	BleManager.connect("characteristic_written", self, "_on_characteristic_written")
 	BleManager.connect("ble_initialized", self,"_on_ble_initialized")
-	BleManager.connect("device_found", self, "_on_dev_found")
+	BleManager.initialize()
 	#BleManager.request_mtu(dev_address)
 	
 #---------------------------------------------------------------------------------------------------
@@ -408,14 +403,21 @@ func _on_CameraButton_toggled(button_pressed):
 #---------------------------------------------------------------------------------------------------
 # Function called when BLE scanning finds a new device
 func _on_dev_found(name, address):
-	print("Found device"+name)
-	BleManager.connect_to_device_address(address)
+	print("Device found: Name - " + str(name) + ", Address - " + str(address))
+	if name == "CameraModule":  # Nome del dispositivo BLE pubblicato dall'ESP32
+		print("ESP32-CAM found, connecting...")
+		BleManager.connect_to_device_address(address)
+	else:
+		print("Device does not match")
+
 
 #---------------------------------------------------------------------------------------------------
 func _on_device_connected(dev_address, name):
-	camera_dev_address = dev_address
-	$CameraButton.modulate = Color.mediumturquoise
-	print(" Connected to: "+ name)
+	print("Connected to device: " + str(name) + " at address " + str(dev_address))
+	if name == "CameraModule":
+		camera_dev_address = dev_address
+		$CameraButton.modulate = Color.green
+		print(" Connected to: "+ name)
 
 #---------------------------------------------------------------------------------------------------
 # after connection confirmation, we have turned off identification light,
@@ -426,9 +428,23 @@ func _on_characteristic_written(address, uuid):
 #----------------------------------------------------------------------------------------------
 
 
-func _on_CameraRec_toggled(button_pressed):
-	if button_pressed:
-		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "rec")
-	else:
-		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")
+#func _on_CameraRec_toggled(button_pressed):
+#	print("entering function")
+#	if button_pressed:
+#		print("Sending command: rec")
+#		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "rec")
+#	else:
+#		print("Sending command: stp")
+#		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")
 
+
+
+func _on_CameraButton2_toggled(button_pressed):
+	if button_pressed:
+		print("Sending command: rec")
+		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "rec")
+		$CameraButton2.modulate = Color.red
+	else:
+		print("Sending command: stp")
+		BleManager.write_string_characteristic(camera_dev_address, camera_characteristic, "stp")
+		$CameraButton2.modulate = Color.white

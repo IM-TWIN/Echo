@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scenes/LokahiMainScene/Lokahi_MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Diagnostics/SignalsMonitor.tscn" type="PackedScene" id=2]
@@ -131,10 +131,6 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=32]
 size = 35
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=33]
-size = 31
 font_data = ExtResource( 5 )
 
 [node name="root" type="Control"]
@@ -893,12 +889,13 @@ custom_fonts/font = SubResource( 32 )
 toggle_mode = true
 text = "Camera"
 
-[node name="CameraRec" type="Button" parent="."]
-margin_left = 893.0
-margin_top = 82.0
-margin_right = 1032.0
-margin_bottom = 168.0
-custom_fonts/font = SubResource( 33 )
+[node name="CameraButton2" type="Button" parent="."]
+margin_left = 881.0
+margin_top = 81.0
+margin_right = 1025.0
+margin_bottom = 167.0
+custom_fonts/font = SubResource( 32 )
+toggle_mode = true
 text = "Rec"
 
 [connection signal="toggled" from="SessionManagement/StartLog" to="." method="_on_StartLog_toggled"]
@@ -917,7 +914,7 @@ text = "Rec"
 [connection signal="value_changed" from="HSlider_volume" to="." method="_on_HSlider_volume_value_changed"]
 [connection signal="value_changed" from="HSlider_light" to="." method="_on_HSlider_light_value_changed"]
 [connection signal="toggled" from="CameraButton" to="." method="_on_CameraButton_toggled"]
-[connection signal="toggled" from="CameraRec" to="." method="_on_CameraRec_toggled"]
+[connection signal="toggled" from="CameraButton2" to="." method="_on_CameraButton2_toggled"]
 
 [editable path="LegMonitorBar"]
 [editable path="MonitorSynchPath"]
