@@ -1,4 +1,4 @@
-//decision_tree_allsubject trained with giampiero data, and all other subjects
+//decision_tree_allsubject trained with giampiero data, and all other subjects - class 2 is walking
 int classify(float features[]) {
     if (features[17] <= 4.37) {
         if (features[0] <= 45.88) {

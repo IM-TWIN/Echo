@@ -1,4 +1,4 @@
-// decision_tree.h model trained only with giampiero data
+// decision_tree.h model trained only with giampiero data, first model imported
 // Definizione della funzione di previsione: 0 ->airplane 1 ->car 2->walking 3->ignoring
 int classify(float features[]) {
     if (features[17] <= 4.37) {
