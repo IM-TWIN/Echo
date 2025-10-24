@@ -109,13 +109,11 @@ Echo/
 
 ## Citations
 
-**1. Echo: an AI‑based toy to encourage symbolic play in children with Autism Spectrum Conditions.**  
-*(IM‑TWIN Project)*
+**1. Giampiero Bartolomei, Beste Ozcan, Giovanni Granato, Gianluca Baldassarre, and Valerio Sperati. 2025. Echo: an AI-based toy to encourage symbolic play in children with Autism Spectrum Conditions. In Proceedings of the Nineteenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI '25). Association for Computing Machinery, New York, NY, USA, Article 85, 1–6. https://doi.org/10.1145/3689050.3705987**  
 
-**2. Bartolomei G., Ozcan B., Granato G., Baldassarre G., Sperati V. (2025).**  
-*A proposal for an AI‑based toy to encourage and assess symbolic play in autistic children.*  
-*Behaviour & Information Technology, 44:14 (3390–3403). DOI:* [10.1080/0144929X.2025.2523478](https://doi.org/10.1080/0144929X.2025.2523478)  
-*Online publication date: 6 Jul 2025.*
+**2. Bartolomei, G., Ozcan, B., Granato, G., Baldassarre, G., & Sperati, V. (2025). A proposal for an AI-based toy to encourage and assess symbolic play in autistic children. Behaviour & Information Technology, 44(14), 3390–3403. https://doi.org/10.1080/0144929X.2025.2523478**
+
+
 
 ---
 
