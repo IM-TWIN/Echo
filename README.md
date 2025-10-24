@@ -1,4 +1,4 @@
-# Echo – An AI‑based Toy for Symbolic Play Recognition and Data Collection (IM‑TWIN Project)
+# Echo – An AI‑based Toy for Symbolic Play Recognition and Data Collection 
 
 ![Echo Prototype](IMG_6805.HEIC)
 
